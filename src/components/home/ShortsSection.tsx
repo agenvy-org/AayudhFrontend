@@ -44,7 +44,7 @@ export const ShortsSection: React.FC<ShortsSectionProps> = ({ shorts }) => {
   }, [shorts]);
 
   return (
-    <section className="py-8 border-b border-slate-100 relative group/shorts">
+    <section className="py-4 border-b border-slate-100 relative group/shorts">
       <SectionHeading 
         title="वीडियो शॉर्ट्स" 
         accentColor="navy" 

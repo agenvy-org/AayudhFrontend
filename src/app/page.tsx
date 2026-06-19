@@ -44,7 +44,10 @@ export default function HomePage() {
     mpArticles = [...mpArticles, ...mpArticles.slice(0, 9 - mpArticles.length)];
   }
   mpArticles = mpArticles.slice(0, 9);
-  const politicsArticles = articles?.filter(a => a.category.slug === 'india') || [];
+  let politicsArticles = articles?.filter(a => a.category.slug === 'india') || [];
+  if (politicsArticles.length > 0 && politicsArticles.length < 4) {
+    politicsArticles = [...politicsArticles, ...politicsArticles.slice(0, 4 - politicsArticles.length)];
+  }
   const entertainmentArticles = articles?.filter(a => a.category.slug === 'entertainment') || [];
   const lifestyleArticles = articles?.filter(a => a.category.slug === 'lifestyle') || [];
   const khaasArticles = articles?.filter(a => a.category.slug === 'aayudh-khaas' || a.id === 'art-6' || a.id === 'art-7') || [];
@@ -54,7 +57,7 @@ export default function HomePage() {
   const otherVideos = videos?.filter(v => v.type !== 'explainer') || [];
 
   return (
-    <div className="space-y-6 pb-12">
+    <div className="space-y-3 pb-8">
       {/* 1. Hero Featured Section */}
       <HeroSection featuredArticle={featuredArticle} latestArticles={latestArticles} />
 

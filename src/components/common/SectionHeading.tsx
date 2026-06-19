@@ -27,7 +27,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   underlineStyle = 'simple',
 }) => {
   return (
-    <div className={cn("mb-6 relative pb-4 select-none px-[10px]", className)}>
+    <div className={cn("mb-4 relative pb-3 select-none px-[10px]", className)}>
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div className="flex flex-col gap-1 z-10">
           <h2 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 font-serif flex items-center gap-2">

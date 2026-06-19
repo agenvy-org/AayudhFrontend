@@ -33,7 +33,7 @@ export const AstrologySection: React.FC = () => {
   if (horoscopes.length === 0) return null;
 
   return (
-    <section className="py-8 border-b border-slate-100 font-sans">
+    <section className="py-4 border-b border-slate-100 font-sans">
       <SectionHeading 
         title="आज का राशिफल" 
         icon={<Sparkles className="w-5 h-5 text-amber-500" />}

@@ -61,10 +61,10 @@ export const MPNewsSection: React.FC<MPNewsSectionProps> = ({ articles }) => {
       );
 
   return (
-    <section className="py-8 border-b border-slate-100">
+    <section className="py-4 border-b border-slate-100">
       <div className="w-full">
 
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-5 relative px-[10px]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4 pb-3 relative px-[10px]">
 
           {/* Text Content */}
           <div className="flex-1 min-w-0">
@@ -161,7 +161,7 @@ export const MPNewsSection: React.FC<MPNewsSectionProps> = ({ articles }) => {
           </div>
 
           {/* Right Column: Sidebar Widgets */}
-          <div className="w-full lg:w-[320px] xl:w-[340px] shrink-0 sticky top-24 self-start flex flex-col gap-6">
+          <div className="w-full lg:w-[320px] xl:w-[340px] shrink-0 flex flex-col gap-6 h-full">
             <CricketScoreWidget />
             <WeatherWidget />
             <NewsletterWidget />

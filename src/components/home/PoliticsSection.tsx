@@ -11,11 +11,11 @@ interface PoliticsSectionProps {
 
 export const PoliticsSection: React.FC<PoliticsSectionProps> = ({ articles }) => {
   return (
-    <section className="py-8 border-b border-slate-100">
+    <section className="py-4 border-b border-slate-100">
       <SectionHeading title="राजनीती" accentColor="navy" actionLink="/category/politics" />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {articles.slice(0, 3).map((art) => (
-          <ArticleCard key={art.id} article={art} layout="vertical" variant="simple" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {articles.slice(0, 4).map((art, index) => (
+          <ArticleCard key={`${art.id}-${index}`} article={art} layout="vertical" variant="simple" />
         ))}
       </div>
     </section>

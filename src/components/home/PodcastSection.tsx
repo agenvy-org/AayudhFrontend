@@ -13,9 +13,9 @@ export const PodcastSection: React.FC<PodcastSectionProps> = ({ podcasts }) => {
   const mainPodcast = podcasts[0];
 
   return (
-    <div className="flex flex-col h-full">
-      <SectionHeading title="Podcast" accentColor="navy" className="mb-4" actionLink="/podcast" />
-      <div className="flex-1 bg-white border border-slate-200/60 rounded-2xl p-3 sm:p-4 shadow-sm flex flex-col overflow-hidden">
+    <div className="grid grid-rows-[auto_1fr] h-full">
+      <SectionHeading title="पॉडकास्ट" accentColor="navy" className="mb-4" actionLink="/podcast" />
+      <div className="bg-white border border-slate-200/60 rounded-2xl p-3 sm:p-4 shadow-sm flex flex-col overflow-hidden min-h-0">
         {mainPodcast ? (
           <PodcastCard podcast={mainPodcast} className="flex-1" />
         ) : (

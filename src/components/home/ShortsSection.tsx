@@ -45,21 +45,13 @@ export const ShortsSection: React.FC<ShortsSectionProps> = ({ shorts }) => {
 
   return (
     <section className="py-8 border-b border-slate-100 relative group/shorts">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-5 relative px-[10px]">
-        <h2 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 font-serif">
-          वीडियो शॉर्ट्स
-        </h2>
-        <Link
-          href="/shorts"
-          className="shrink-0 flex items-center justify-center gap-1 rounded-[10px] px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer bg-red-600 text-white border-red-600 hover:bg-red-700 hover:border-red-700 self-start md:self-auto group"
-        >
-          और भी
-          <ChevronsRight size={14} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
-        </Link>
-        {/* Integrated bottom border design */}
-        <div className="absolute bottom-0 left-[10px] right-[10px] h-[1px] bg-slate-200" />
-        <div className="absolute bottom-0 left-[10px] h-[3px] w-24 rounded-full bg-brand-yellow -mb-[1px]" />
-      </div>
+      <SectionHeading 
+        title="वीडियो शॉर्ट्स" 
+        accentColor="navy" 
+        className="mb-8" 
+        actionLink="/shorts" 
+        underlineStyle="glow"
+      />
 
       {/* Carousel Wrapper with Relative positioning for absolute arrows */}
       <div className="relative">

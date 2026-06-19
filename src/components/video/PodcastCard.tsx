@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { Play, Pause, Volume2, Calendar, Clock } from 'lucide-react';
+import { Play, Pause, Volume2, Calendar, Clock, User } from 'lucide-react';
 import { Podcast } from '@/types/podcast';
 import { Card } from '../common/Card';
 
@@ -58,15 +58,25 @@ export const PodcastCard: React.FC<PodcastCardProps> = ({ podcast, className }) 
       )}
 
       {/* Title Panel */}
-      <div className="pt-3 bg-white flex-1">
-        <h4 className="font-serif text-[16px] sm:text-[18px] font-bold text-[#111827] leading-[1.3] line-clamp-3 hover:text-brand-purple transition-colors duration-200">
+      <div className="pt-3 bg-white flex-1 flex flex-col">
+        <h4 className="font-serif text-[22px] sm:text-[28px] font-black tracking-tight text-[#111827] leading-[1.25] line-clamp-3 hover:text-[#e01a22] transition-colors duration-200">
           {podcast.title}
         </h4>
         {podcast.description && (
-          <p className="mt-2 text-[13px] sm:text-[14px] text-slate-500 line-clamp-2 leading-relaxed">
+          <p className="mt-2 text-[13px] sm:text-[14px] text-slate-500 line-clamp-2 leading-relaxed flex-1">
             {podcast.description}
           </p>
         )}
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[11px] sm:text-[12px] text-slate-500 font-medium">
+          <div className="flex items-center gap-1.5 font-bold text-slate-700">
+            <Calendar className="w-3.5 h-3.5" />
+            <span>Published: {podcast.publishedAt}</span>
+          </div>
+          <div className="flex items-center gap-1.5 font-bold text-slate-700">
+            <User className="w-3.5 h-3.5" />
+            <span>Guest: Akash Kumar</span>
+          </div>
+        </div>
       </div>
 
       {/* Hidden Audio Element */}

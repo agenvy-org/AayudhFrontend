@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { Search, Menu, X } from 'lucide-react';
 import { useSearchStore } from '@/store/search.store';
@@ -47,9 +48,17 @@ export const Header: React.FC = () => {
                 {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
               
-              <Link href="/" className="flex items-center gap-1.5">
-                <span className="font-sans text-xl font-black tracking-wider text-white">
-                  AYUDH
+              <Link href="/" className="flex items-center gap-2">
+                <Image 
+                  src="/logo.jpg" 
+                  alt="Ayudh Logo" 
+                  width={32} 
+                  height={32} 
+                  className="rounded-md object-contain"
+                  priority
+                />
+                <span className="font-sans text-xl font-black tracking-wider text-white hidden sm:block">
+                  AAYUDH
                 </span>
               </Link>
             </div>

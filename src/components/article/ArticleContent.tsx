@@ -4,6 +4,7 @@ import React from 'react';
 import { Article } from '@/types/article';
 import { AuthorBox } from './AuthorBox';
 import { ShareButtons } from './ShareButtons';
+import { CommentSection } from './CommentSection';
 import { Eye, Calendar, Clock } from 'lucide-react';
 
 interface ArticleContentProps {
@@ -37,10 +38,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
             <Calendar className="w-3.5 h-3.5" />
             <span>{article.publishedAt}</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" />
-            <span>{article.readTime} पढ़ने का समय</span>
-          </div>
+
           {article.views && (
             <div className="flex items-center gap-1.5">
               <Eye className="w-3.5 h-3.5" />
@@ -61,7 +59,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
       </div>
 
       {/* Editorial Content paragraphs */}
-      <div className="mt-8 font-serif text-slate-800 text-[17px] md:text-[18px] leading-relaxed space-y-6">
+      <div className="mt-8 font-serif text-slate-800 text-[21px] md:text-[23px] leading-[1.8] space-y-7">
         {article.content.split('\n\n').map((para, i) => (
           <p key={i}>{para}</p>
         ))}
@@ -85,6 +83,9 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
       <div className="mt-8">
         <AuthorBox author={article.author} />
       </div>
+
+      {/* Comment Section */}
+      <CommentSection />
     </article>
   );
 };

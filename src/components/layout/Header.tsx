@@ -9,7 +9,7 @@ import { useSearchStore } from '@/store/search.store';
 import { useUiStore } from '@/store/ui.store';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
-import { FacebookIcon, TwitterIcon, YoutubeIcon } from '../common/BrandIcons';
+import { FacebookIcon, TwitterIcon, YoutubeIcon, InstagramIcon } from '../common/BrandIcons';
 import { mainNav, mpDistricts } from '@/config/navigation';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -77,14 +77,11 @@ export const Header: React.FC = () => {
                       <Link
                         href={item.href}
                         className={cn(
-                          "transition-colors duration-200 hover:text-white py-4 relative block",
-                          isActive ? "text-white font-bold" : "text-slate-300"
+                          "transition-colors duration-200 hover:text-brand-yellow py-4 relative block",
+                          isActive ? "text-brand-yellow font-bold" : "text-slate-300"
                         )}
                       >
                         {item.title}
-                        {isActive && (
-                          <span className="absolute bottom-2 left-0 right-0 h-[2px] rounded-full bg-brand-purple" />
-                        )}
                       </Link>
 
                       {isMPNews && (
@@ -174,6 +171,9 @@ export const Header: React.FC = () => {
               </a>
               <a href="https://youtube.com" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-slate-300 hover:text-white hover:bg-brand-navy-light/40 transition-colors" aria-label="Youtube">
                 <YoutubeIcon className="h-3.5 w-3.5" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-slate-300 hover:text-white hover:bg-brand-navy-light/40 transition-colors" aria-label="Instagram">
+                <InstagramIcon className="h-3.5 w-3.5" />
               </a>
             </div>
 

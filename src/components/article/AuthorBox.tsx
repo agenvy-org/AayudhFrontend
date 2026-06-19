@@ -7,16 +7,23 @@ interface AuthorBoxProps {
 
 export const AuthorBox: React.FC<AuthorBoxProps> = ({ author }) => {
   return (
-    <div className="flex gap-4 p-4 border border-slate-100 bg-slate-50/50 rounded-xl items-center font-sans">
-      <img
-        src={author.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150'}
-        alt={author.name}
-        className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
-      />
-      <div>
-        <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{author.role || 'रिपोर्टर'}</div>
-        <div className="text-sm font-black text-slate-800 mt-0.5">{author.name}</div>
-        {author.bio && <p className="text-xs text-slate-500 mt-1 leading-relaxed">{author.bio}</p>}
+    <div className="flex items-center p-4 bg-gradient-to-r from-brand-navy/5 to-white border border-brand-navy/10 rounded-2xl shadow-sm font-sans relative overflow-hidden">
+      {/* Decorative accent line */}
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-navy"></div>
+      
+      <div className="flex items-center gap-4">
+        <div className="relative">
+          <img
+            src={author.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150'}
+            alt={author.name}
+            className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md shrink-0 relative z-10"
+          />
+          <div className="absolute inset-0 bg-brand-navy/20 rounded-full blur-md -z-0 scale-110"></div>
+        </div>
+        <div>
+          <div className="text-[11px] text-brand-purple font-extrabold uppercase tracking-widest mb-0.5">{author.role || 'रिपोर्टर'}</div>
+          <div className="text-base font-extrabold text-slate-800">{author.name}</div>
+        </div>
       </div>
     </div>
   );

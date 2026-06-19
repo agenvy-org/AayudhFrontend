@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Share2, Link as LinkIcon, Check } from 'lucide-react';
-import { FacebookIcon, TwitterIcon } from '../common/BrandIcons';
+import { FacebookIcon, TwitterIcon, WhatsAppIcon } from '../common/BrandIcons';
 import { SHARE_LINKS } from '@/lib/constants';
 
 interface ShareButtonsProps {
@@ -32,7 +32,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title }) => {
         href={SHARE_LINKS.facebook(url)}
         target="_blank"
         rel="noreferrer"
-        className="rounded-full bg-slate-100 p-2 text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-200"
+        className="rounded-full bg-[#1877F2] w-[30px] h-[30px] flex items-center justify-center text-white hover:bg-[#1877F2]/90 hover:scale-105 transition-all duration-200 shadow-sm"
         aria-label="Facebook"
       >
         <FacebookIcon className="w-3.5 h-3.5" />
@@ -43,7 +43,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title }) => {
         href={SHARE_LINKS.twitter(url, title)}
         target="_blank"
         rel="noreferrer"
-        className="rounded-full bg-slate-100 p-2 text-slate-600 hover:bg-slate-900 hover:text-white transition-all duration-200"
+        className="rounded-full bg-black w-[30px] h-[30px] flex items-center justify-center text-white hover:bg-black/90 hover:scale-105 transition-all duration-200 shadow-sm"
         aria-label="Twitter"
       >
         <TwitterIcon className="w-3.5 h-3.5" />
@@ -54,19 +54,21 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title }) => {
         href={SHARE_LINKS.whatsapp(url, title)}
         target="_blank"
         rel="noreferrer"
-        className="rounded-full bg-slate-100 p-2 text-slate-600 hover:bg-green-600 hover:text-white transition-all duration-200 flex items-center justify-center"
+        className="rounded-full bg-[#25D366] w-[30px] h-[30px] flex items-center justify-center text-white hover:bg-[#25D366]/90 hover:scale-105 transition-all duration-200 shadow-sm"
         aria-label="WhatsApp"
       >
-        <span className="text-[9px] font-black leading-none px-0.5">WA</span>
+        <WhatsAppIcon className="w-3.5 h-3.5" />
       </a>
 
       {/* Copy Link */}
       <button
         onClick={handleCopy}
-        className="rounded-full bg-slate-100 p-2 text-slate-600 hover:bg-brand-purple hover:text-white transition-all duration-200"
+        className={`rounded-full w-[30px] h-[30px] flex items-center justify-center text-white hover:scale-105 transition-all duration-200 shadow-sm ${
+          copied ? 'bg-green-500 hover:bg-green-600' : 'bg-brand-purple hover:bg-brand-purple/90'
+        }`}
         aria-label="Copy Link"
       >
-        {copied ? <Check className="w-3.5 h-3.5 text-green-600" /> : <LinkIcon className="w-3.5 h-3.5" />}
+        {copied ? <Check className="w-3.5 h-3.5" /> : <LinkIcon className="w-3.5 h-3.5" />}
       </button>
     </div>
   );

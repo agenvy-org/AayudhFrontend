@@ -5,8 +5,8 @@ import { notFound } from 'next/navigation';
 import { useArticle, useRelatedArticles } from '@/hooks/useArticles';
 import { ArticleContent } from '@/components/article/ArticleContent';
 import { RelatedArticles } from '@/components/article/RelatedArticles';
-import { WeatherWidget } from '@/components/widgets/WeatherWidget';
-import { StockWidget } from '@/components/widgets/StockWidget';
+import { LiveUpdatesWidget } from '@/components/widgets/LiveUpdatesWidget';
+import { WhatsAppWidget } from '@/components/widgets/WhatsAppWidget';
 import { Loader } from '@/components/common/Loader';
 
 interface ArticlePageProps {
@@ -46,8 +46,8 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
       {/* Right Column: Widgets Sidebar */}
       <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-20">
-        <WeatherWidget />
-        <StockWidget />
+        <LiveUpdatesWidget />
+        <WhatsAppWidget />
       </div>
 
     </div>

@@ -6,7 +6,7 @@ import { Article } from '@/types/article';
 import { SectionHeading } from '../common/SectionHeading';
 import { ArticleCard } from '../article/ArticleCard';
 import { REGIONS } from '@/lib/constants';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronsRight, MapPin } from 'lucide-react';
 
 interface MPNewsSectionProps {
   articles: Article[];
@@ -61,16 +61,13 @@ export const MPNewsSection: React.FC<MPNewsSectionProps> = ({ articles }) => {
     <section className="py-8 border-b border-slate-100">
       <div className="w-full">
 
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-slate-200 pb-5 relative px-[10px]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-5 relative px-[10px]">
 
           {/* Text Content */}
           <div className="flex-1 min-w-0">
-            <h2 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 font-serif">
-              Madhya Pradesh News
+            <h2 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 font-serif flex items-center gap-2">
+              मध्य प्रदेश
             </h2>
-            <p className="text-sm md:text-[15px] text-slate-500 font-sans tracking-wide mt-1.5">
-              भोपाल, इंदौर, जबलपुर, ग्वालियर और सभी जिलों की खबरें
-            </p>
           </div>
 
           {/* Regional City Tabs with Scroll Controls */}
@@ -105,12 +102,12 @@ export const MPNewsSection: React.FC<MPNewsSectionProps> = ({ articles }) => {
             <div
               ref={scrollContainerRef}
               onScroll={handleScroll}
-              className="flex gap-2.5 overflow-x-auto no-scrollbar pb-1 pt-1 scroll-smooth snap-x select-none px-0.5 md:px-0"
+              className="flex gap-2.5 overflow-x-auto no-scrollbar pb-1 pt-1 scroll-smooth snap-x select-none px-1 md:px-1"
             >
               <button
                 onClick={() => setActiveTab('all')}
-                className={`shrink-0 rounded-full px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer ${activeTab === 'all'
-                    ? 'bg-brand-purple text-white border-brand-purple shadow-md shadow-brand-purple/25'
+                className={`shrink-0 rounded-[10px] px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer ${activeTab === 'all'
+                    ? 'bg-brand-purple text-white border-brand-purple'
                     : 'bg-white text-slate-600 border-slate-200 hover:border-brand-purple/40 hover:text-brand-purple hover:bg-brand-purple/5'
                   }`}
               >
@@ -120,8 +117,8 @@ export const MPNewsSection: React.FC<MPNewsSectionProps> = ({ articles }) => {
                 <button
                   key={region.value}
                   onClick={() => setActiveTab(region.name)}
-                  className={`shrink-0 rounded-full px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer ${activeTab === region.name
-                      ? 'bg-brand-purple text-white border-brand-purple shadow-md shadow-brand-purple/25'
+                  className={`shrink-0 rounded-[10px] px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer ${activeTab === region.name
+                      ? 'bg-brand-purple text-white border-brand-purple'
                       : 'bg-white text-slate-600 border-slate-200 hover:border-brand-purple/40 hover:text-brand-purple hover:bg-brand-purple/5'
                     }`}
                 >
@@ -130,15 +127,17 @@ export const MPNewsSection: React.FC<MPNewsSectionProps> = ({ articles }) => {
               ))}
               <Link
                 href="/category/madhya-pradesh"
-                className="shrink-0 rounded-[14px] px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer bg-red-600 text-white border-red-600 hover:bg-red-700 hover:border-red-700 shadow-md shadow-red-600/25"
+                className="shrink-0 flex items-center justify-center gap-1 rounded-[10px] px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer bg-red-600 text-white border-red-600 hover:bg-red-700 hover:border-red-700 group"
               >
                 और भी
+                <ChevronsRight size={14} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
 
-          {/* Thick purple accent border locked to the parent's border-bottom, aligned with left padding */}
-          <div className="absolute bottom-[-1px] left-[10px] h-[3px] w-24 rounded-full bg-brand-purple" />
+          {/* Integrated bottom border design */}
+          <div className="absolute bottom-0 left-[10px] right-[10px] h-[1px] bg-slate-200" />
+          <div className="absolute bottom-0 left-[10px] h-[3px] w-24 rounded-full bg-brand-yellow -mb-[1px]" />
         </div>
 
         {/* Articles Grid */}

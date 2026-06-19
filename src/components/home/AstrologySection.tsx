@@ -6,6 +6,7 @@ import { Star, Sparkles } from 'lucide-react';
 import { astrologyService } from '@/services/astrology.service';
 import { Horoscope } from '@/types/horoscope';
 import { Loader } from '../common/Loader';
+import { SectionHeading } from '../common/SectionHeading';
 
 export const AstrologySection: React.FC = () => {
   const [horoscopes, setHoroscopes] = useState<Horoscope[]>([]);
@@ -33,47 +34,61 @@ export const AstrologySection: React.FC = () => {
 
   return (
     <section className="py-8 border-b border-slate-100 font-sans">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="font-serif text-2xl font-bold text-brand-navy flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-amber-500" /> आज का राशिफल
-        </h2>
-        <span className="text-xs text-slate-400 font-semibold">दैनिक भविष्यफल</span>
-      </div>
+      <SectionHeading 
+        title="आज का राशिफल" 
+        icon={<Sparkles className="w-5 h-5 text-amber-500" />}
+        actionLink="/astrology" 
+        actionText="दैनिक भविष्यफल" 
+        hideLine={true}
+      />
 
-      {/* Dark Navy Zodiac Icons Banner */}
-      <div className="rounded-2xl bg-[#041e42] p-4 sm:p-6 shadow-lg border border-slate-800">
+      {/* High-End Minimal Dark Navy Container */}
+      <div className="relative rounded-2xl bg-[#041e42] p-6 sm:p-8 shadow-sm border border-slate-800 overflow-hidden">
         
         {/* Horizontal Signs Selector */}
-        <div className="no-scrollbar flex items-center gap-4 sm:gap-6 overflow-x-auto pb-2 px-1 justify-between">
+        <div className="relative z-10 no-scrollbar overflow-x-auto pb-8 pt-2 px-4 border-b border-slate-800/80">
+          {/* Subtle connecting line behind circles */}
+          <div className="absolute top-[34px] left-8 right-8 h-[1px] bg-slate-800/50 -z-10" />
+          
+          <div className="flex items-center gap-6 md:gap-10 justify-between min-w-max">
           {horoscopes.map((h, index) => {
             const isSelected = activeSignIndex === index;
             return (
               <button
                 key={h.sign}
                 onClick={() => setActiveSignIndex(index)}
-                className="flex flex-col items-center gap-1.5 shrink-0 group focus:outline-none cursor-pointer"
+                className="relative flex flex-col items-center gap-3 shrink-0 group focus:outline-none cursor-pointer"
               >
-                {/* Zodiac Circle Icon */}
                 <div
-                  className={`w-12 h-12 rounded-full border-2 flex items-center justify-center text-xl transition-all duration-300 ${
+                  className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl transition-all duration-300 ${
                     isSelected
-                      ? 'border-amber-400 bg-amber-400/20 scale-110 shadow-md shadow-amber-400/10'
-                      : 'border-slate-700 bg-slate-800/40 text-slate-400 hover:border-slate-500 hover:text-white'
+                      ? 'bg-gradient-to-tr from-amber-500 to-amber-300 text-[#041e42] scale-110 shadow-[0_4px_15px_rgba(251,191,36,0.3)] ring-4 ring-[#041e42] z-10'
+                      : 'bg-[#041e42] border-[1.5px] border-slate-700/50 text-slate-400 group-hover:border-amber-400/50 group-hover:text-amber-300 group-hover:bg-[#0b2545] z-10'
                   }`}
                 >
-                  <span className={isSelected ? 'text-amber-400 font-black' : ''}>{h.icon}</span>
+                  <span className={isSelected ? 'font-black' : 'font-medium'}>{h.icon}</span>
                 </div>
                 {/* Sign label */}
                 <span
-                  className={`text-xs font-bold transition-colors duration-200 ${
-                    isSelected ? 'text-amber-400' : 'text-slate-450 group-hover:text-white'
+                  className={`text-[13px] font-bold tracking-wide transition-colors duration-200 ${
+                    isSelected ? 'text-amber-400' : 'text-slate-400 group-hover:text-slate-200'
                   }`}
                 >
                   {h.sign}
                 </span>
+                
+                {/* Active Indicator Dot under text */}
+                {isSelected && (
+                  <motion.div
+                    layoutId="activeZodiacDot"
+                    className="absolute -bottom-3 w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </button>
             );
           })}
+          </div>
         </div>
 
         {/* Selected Sign Prediction Panel */}
@@ -81,48 +96,56 @@ export const AstrologySection: React.FC = () => {
           {activeHoroscope && (
             <motion.div
               key={activeHoroscope.sign}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="mt-6 border-t border-slate-800 pt-6 grid grid-cols-1 md:grid-cols-4 gap-6 text-white items-center"
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="mt-8 grid grid-cols-1 lg:grid-cols-4 gap-8 md:gap-12 text-white items-start"
             >
               {/* Sign Summary Details (Col-span-1) */}
-              <div className="md:col-span-1 border-r border-slate-800/60 pr-4 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-                <div className="flex items-center gap-2">
-                  <span className="text-3xl text-amber-400">{activeHoroscope.icon}</span>
+              <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <div className="flex items-center gap-5">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0b2545] to-[#020f21] border border-slate-700/50 flex items-center justify-center text-4xl text-amber-400 shadow-inner">
+                    {activeHoroscope.icon}
+                  </div>
                   <div>
-                    <h3 className="text-lg font-black text-amber-400 leading-none">{activeHoroscope.sign}</h3>
-                    <span className="text-[10px] text-slate-450 font-semibold">{activeHoroscope.englishSign}</span>
+                    <h3 className="text-2xl font-black text-white leading-none tracking-tight">{activeHoroscope.sign}</h3>
+                    <span className="text-[11px] text-slate-400 font-semibold uppercase tracking-[0.25em] mt-2 block">{activeHoroscope.englishSign}</span>
                   </div>
                 </div>
                 
                 {/* Horoscope stats */}
-                <div className="mt-4 grid grid-cols-2 gap-3 text-[10px] text-slate-400 font-bold w-full max-w-[200px] md:max-w-none">
-                  <div className="bg-slate-800/30 p-2 rounded-lg border border-slate-850">
-                    <div>शुभ अंक</div>
-                    <div className="text-sm font-black text-amber-400 mt-1">{activeHoroscope.luckyNumber}</div>
+                <div className="mt-8 w-full flex flex-row divide-x divide-slate-800/80 border-y border-slate-800/80 py-5">
+                  <div className="flex-1 flex flex-col items-center justify-center">
+                    <div className="text-slate-400 text-[10px] uppercase tracking-[0.2em] mb-2 font-medium">शुभ अंक</div>
+                    <div className="text-3xl font-black text-amber-400 font-serif leading-none">{activeHoroscope.luckyNumber}</div>
                   </div>
-                  <div className="bg-slate-800/30 p-2 rounded-lg border border-slate-850">
-                    <div>शुभ रंग</div>
-                    <div className="text-sm font-black text-amber-400 mt-1">{activeHoroscope.luckyColor}</div>
+                  <div className="flex-1 flex flex-col items-center justify-center">
+                    <div className="text-slate-400 text-[10px] uppercase tracking-[0.2em] mb-2 font-medium">शुभ रंग</div>
+                    <div className="text-3xl font-black text-amber-400 font-serif leading-none">{activeHoroscope.luckyColor}</div>
                   </div>
                 </div>
               </div>
 
               {/* Prediction Text (Col-span-3) */}
-              <div className="md:col-span-3 pl-0 md:pl-2">
-                <div className="flex items-center gap-1.5 text-xs text-amber-400/90 font-bold mb-2">
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <span>आज का राशिफल & स्वभाव:</span>
+              <div className="lg:col-span-3 pl-0 lg:pl-8 lg:border-l border-slate-800/80 flex flex-col justify-center h-full pt-2">
+                <div className="flex items-center gap-3 mb-5">
+                  <Star className="w-5 h-5 text-amber-400 fill-current" />
+                  <h4 className="text-xl font-bold text-white tracking-wide">आज का स्वभाव</h4>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-200 font-medium">
+                <p className="text-[16px] sm:text-[17px] leading-[1.9] text-slate-300 font-normal opacity-95">
                   {activeHoroscope.prediction}
                 </p>
-                <div className="mt-4 flex gap-4 text-[10px] font-semibold text-slate-500">
-                  <span>तत्व: <strong className="text-slate-300">{activeHoroscope.element}</strong></span>
-                  <span>•</span>
-                  <span>भविष्यवाणी प्रदाता: <strong className="text-slate-300">Aayudh ज्योतिष बोर्ड</strong></span>
+                
+                <div className="mt-8 flex flex-wrap items-center gap-3 text-[11px] font-medium text-slate-400">
+                  <div className="flex items-center gap-2 bg-[#0b2545] px-4 py-2 rounded-full border border-slate-700/50">
+                    <span className="opacity-70">तत्व:</span>
+                    <strong className="text-slate-200">{activeHoroscope.element}</strong>
+                  </div>
+                  <div className="flex items-center gap-2 bg-[#0b2545] px-4 py-2 rounded-full border border-slate-700/50">
+                    <span className="opacity-70">भविष्यवाणी प्रदाता:</span>
+                    <strong className="text-slate-200">Aayudh ज्योतिष बोर्ड</strong>
+                  </div>
                 </div>
               </div>
 

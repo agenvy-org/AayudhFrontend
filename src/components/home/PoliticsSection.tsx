@@ -12,7 +12,7 @@ interface PoliticsSectionProps {
 export const PoliticsSection: React.FC<PoliticsSectionProps> = ({ articles }) => {
   return (
     <section className="py-8 border-b border-slate-100">
-      <SectionHeading title="राजनीती" accentColor="navy" />
+      <SectionHeading title="राजनीती" accentColor="navy" actionLink="/category/politics" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {articles.slice(0, 3).map((art) => (
           <ArticleCard key={art.id} article={art} layout="vertical" variant="simple" />

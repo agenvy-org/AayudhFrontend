@@ -8,7 +8,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 345,
     overlayTitle: 'JEE टॉपर शुभम की पूरी कहानी',
-    thumbnail: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -18,7 +18,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 820,
     overlayTitle: '‘हड़प्पा-मोहनजोदाड़ो हमारे हैं’',
-    thumbnail: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -28,7 +28,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 1240,
     overlayTitle: '‘डॉनल्ड ट्रंप’ कुर्बान होते होते रह गया!',
-    thumbnail: 'https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -38,7 +38,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 540,
     overlayTitle: 'Beauty Industry का काला सच',
-    thumbnail: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -48,7 +48,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 2130,
     overlayTitle: 'चुनाव जीतने वाली ट्रांसजेंडर माही महंत कौन हैं?',
-    thumbnail: 'https://images.unsplash.com/photo-1577985051167-0d49eec21977?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -58,7 +58,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 980,
     overlayTitle: 'रेलवे यात्रियों के लिए बड़ी खुशखबरी',
-    thumbnail: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -68,7 +68,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 1420,
     overlayTitle: 'सोना हुआ बेहद सस्ता! जानें ताजा भाव',
-    thumbnail: 'https://images.unsplash.com/photo-1610375461246-83df859d8222?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -78,7 +78,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 750,
     overlayTitle: 'MP बोर्ड परीक्षा में लड़कियों का जलवा',
-    thumbnail: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -88,7 +88,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 1100,
     overlayTitle: 'खूबसूरत मांडू के ऐतिहासिक महल',
-    thumbnail: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   },
   {
@@ -98,7 +98,7 @@ export const mockShorts: Short[] = [
     tag: 'SHORT',
     likes: 1850,
     overlayTitle: 'धमाकेदार स्मार्टफोन भारत में लॉन्च',
-    thumbnail: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=600',
+    thumbnail: '/hanuman.jpeg',
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4'
   }
 ];

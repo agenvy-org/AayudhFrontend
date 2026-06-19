@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, MapPin, ChevronRight, TrendingUp } from 'lucide-react';
 import { useSearchStore } from '@/store/search.store';
 import { useUiStore } from '@/store/ui.store';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
 import { FacebookIcon, TwitterIcon, YoutubeIcon } from '../common/BrandIcons';
-import { mainNav } from '@/config/navigation';
+import { mainNav, mpDistricts } from '@/config/navigation';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Capsule container */}
         <div className="relative flex h-14 items-center justify-between rounded-full bg-brand-navy px-6 text-white shadow-lg border border-brand-navy-light">
-          
+
           {/* Left Section: Mobile Menu Toggle, Brand Logo & Main categories */}
           <div className="flex items-center gap-6 xl:gap-8 min-w-0">
             <div className="flex items-center gap-3 shrink-0">
@@ -47,13 +47,13 @@ export const Header: React.FC = () => {
               >
                 {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
-              
+
               <Link href="/" className="flex items-center gap-2">
-                <Image 
-                  src="/logo.jpg" 
-                  alt="Ayudh Logo" 
-                  width={32} 
-                  height={32} 
+                <Image
+                  src="/logo.jpg"
+                  alt="Ayudh Logo"
+                  width={32}
+                  height={32}
                   className="rounded-md object-contain"
                   priority
                 />
@@ -66,24 +66,60 @@ export const Header: React.FC = () => {
             <span className="hidden lg:inline-block h-4 w-[1px] bg-slate-700/60 shrink-0" />
 
             {/* Main categories (Hidden on tablet/mobile) */}
-            <nav className="hidden lg:block min-w-0 overflow-hidden">
+            <nav className="hidden lg:block min-w-0">
               <ul className="flex items-center gap-3 xl:gap-5 font-sans text-[13px] xl:text-[14px] font-semibold text-slate-300 whitespace-nowrap">
                 {mainNav.map((item) => {
                   const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+                  const isMPNews = item.title === "मध्यप्रदेश न्यूज़";
+
                   return (
-                    <li key={item.title}>
+                    <li key={item.title} className={cn(isMPNews && "group")}>
                       <Link
                         href={item.href}
                         className={cn(
-                          "transition-colors duration-200 hover:text-white py-1 relative block",
+                          "transition-colors duration-200 hover:text-white py-4 relative block",
                           isActive ? "text-white font-bold" : "text-slate-300"
                         )}
                       >
                         {item.title}
                         {isActive && (
-                          <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded-full bg-brand-purple" />
+                          <span className="absolute bottom-2 left-0 right-0 h-[2px] rounded-full bg-brand-purple" />
                         )}
                       </Link>
+
+                      {isMPNews && (
+                        <div className="absolute top-[64px] left-1/2 -translate-x-1/2 mt-0 w-[850px] rounded-2xl bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] border border-slate-200/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100] transform origin-top translate-y-4 group-hover:translate-y-0 p-6 cursor-default">
+                          
+                          <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                            <h3 className="text-brand-navy font-bold text-lg flex items-center gap-2">
+                              <MapPin className="w-5 h-5 text-brand-purple" /> मध्य प्रदेश के 55 जिले
+                            </h3>
+                            <div className="flex items-center gap-3">
+                              <span className="text-[11px] font-bold text-slate-500 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-full shadow-sm">अ-ज्ञ क्रम में</span>
+                              <Link href="/category/madhya-pradesh" className="text-[12px] font-bold text-white bg-brand-purple hover:bg-brand-purple-dark px-4 py-1.5 rounded-full transition-colors flex items-center gap-1 shadow-sm group/btn">
+                                सभी खबरें <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                              </Link>
+                            </div>
+                          </div>
+                          
+                          {/* Compact grid without scroll */}
+                          <ul className="grid grid-cols-5 gap-2">
+                            {mpDistricts.map((district) => (
+                              <li key={district.title}>
+                                <Link
+                                  href={district.href}
+                                  className="group/pill flex items-center justify-center px-2.5 py-1.5 bg-white border border-slate-200/80 rounded-lg transition-all duration-300 hover:border-brand-purple hover:bg-gradient-to-br hover:from-brand-purple/5 hover:to-brand-purple/10 hover:shadow-[0_4px_12px_-2px_rgba(168,85,247,0.25)] hover:-translate-y-0.5"
+                                >
+                                  <span className="text-[12px] font-semibold text-slate-600 group-hover/pill:text-brand-purple transition-colors text-center w-full">
+                                    {district.title}
+                                  </span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                          
+                        </div>
+                      )}
                     </li>
                   );
                 })}
@@ -93,7 +129,7 @@ export const Header: React.FC = () => {
 
           {/* Right Section: Search, Social Media Icons, Magazine Button */}
           <div className="flex items-center gap-3 shrink-0">
-            
+
             {/* Animated Search Bar (Desktop) */}
             <div className="relative hidden md:flex items-center">
               <AnimatePresence>

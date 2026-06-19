@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronsRight } from 'lucide-react';
 import { Short } from '@/types/shorts';
 import { SectionHeading } from '../common/SectionHeading';
 import { ShortsCard } from '../video/ShortsCard';
@@ -45,18 +45,20 @@ export const ShortsSection: React.FC<ShortsSectionProps> = ({ shorts }) => {
 
   return (
     <section className="py-8 border-b border-slate-100 relative group/shorts">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b border-slate-200 pb-5 relative px-[10px]">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-5 relative px-[10px]">
         <h2 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 font-serif">
           वीडियो शॉर्ट्स
         </h2>
         <Link
           href="/shorts"
-          className="shrink-0 rounded-[14px] px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer bg-red-600 text-white border-red-600 hover:bg-red-700 hover:border-red-700 shadow-md shadow-red-600/25 self-start md:self-auto"
+          className="shrink-0 flex items-center justify-center gap-1 rounded-[10px] px-4 py-1.5 text-[12px] font-semibold tracking-wide transition-all duration-300 border cursor-pointer bg-red-600 text-white border-red-600 hover:bg-red-700 hover:border-red-700 self-start md:self-auto group"
         >
           और भी
+          <ChevronsRight size={14} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
         </Link>
-        {/* Thick purple accent border locked to the parent's border-bottom, aligned with left padding */}
-        <div className="absolute bottom-[-1px] left-[10px] h-[3px] w-24 rounded-full bg-brand-purple" />
+        {/* Integrated bottom border design */}
+        <div className="absolute bottom-0 left-[10px] right-[10px] h-[1px] bg-slate-200" />
+        <div className="absolute bottom-0 left-[10px] h-[3px] w-24 rounded-full bg-brand-yellow -mb-[1px]" />
       </div>
 
       {/* Carousel Wrapper with Relative positioning for absolute arrows */}

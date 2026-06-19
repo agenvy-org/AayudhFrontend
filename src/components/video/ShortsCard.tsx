@@ -16,7 +16,7 @@ export const ShortsCard: React.FC<ShortsCardProps> = ({ short, onClick, isActive
     if (!title) return null;
     let firstHalf = '';
     let secondHalf = '';
-    
+
     if (title.includes('|')) {
       const parts = title.split('|');
       firstHalf = parts[0].trim();
@@ -46,59 +46,30 @@ export const ShortsCard: React.FC<ShortsCardProps> = ({ short, onClick, isActive
   return (
     <div
       onClick={onClick}
-      className={`relative rounded-xl overflow-hidden bg-white hover:shadow-md border border-slate-200 flex flex-col cursor-pointer transition-all duration-300 w-[165px] sm:w-[185px] shrink-0 ${
-        isActive ? 'ring-2 ring-brand-purple' : ''
+      className={`relative rounded-[28px] overflow-hidden bg-white hover:-translate-y-1.5 border border-slate-200/80 flex flex-col cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] w-[190px] sm:w-[240px] shrink-0 group/card p-2 sm:p-2.5 ${
+        isActive ? 'ring-2 ring-[#e01a22] ring-offset-2' : ''
       }`}
     >
-      {/* Top Media/Gradient Section with 9:16 Aspect Ratio */}
-      <div className="relative aspect-[9/16] bg-slate-950 overflow-hidden shrink-0">
+      {/* Media Section with 9:16 Aspect Ratio */}
+      <div className="relative aspect-[9/16] bg-slate-950 overflow-hidden shrink-0 rounded-[20px] sm:rounded-[22px]">
+        {/* Subtle inner border for crispness */}
+        <div className="absolute inset-0 ring-1 ring-inset ring-black/5 z-20 rounded-[20px] sm:rounded-[22px] pointer-events-none" />
+        
         {short.thumbnail ? (
           <img
             src={short.thumbnail}
             alt={short.title}
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/card:scale-110"
             loading="lazy"
           />
         ) : (
-          <div className={`w-full h-full bg-gradient-to-tr ${short.bgColor || 'from-indigo-400 to-purple-600'}`} />
+          <div className={`w-full h-full bg-gradient-to-tr ${short.bgColor || 'from-indigo-400 to-purple-600'} transition-transform duration-700 group-hover/card:scale-110`} />
         )}
 
-        {/* Dark overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
-
-        {/* Top Brand Logo Overlay */}
-        <div className="absolute top-3 left-0 right-0 flex flex-col items-center pointer-events-none select-none z-10">
-          <div className="w-[22px] h-[22px] bg-[#e01a22] rounded flex flex-col items-center justify-center text-white p-0.5 shadow shadow-black/30">
-            <div className="grid grid-cols-2 gap-0 text-[7px] font-extrabold leading-none w-full text-center">
-              <span>ख़</span>
-              <span>ब</span>
-              <span>र</span>
-              <span>ग</span>
-            </div>
-          </div>
-          <span className="text-[6px] font-black text-white tracking-widest mt-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">खबरगांव</span>
+        {/* Small Dark Circular Play Button Overlay (Bottom-Right) */}
+        <div className="absolute bottom-3 right-3 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 backdrop-blur-sm border-[1.5px] border-white/80 text-white shadow-lg z-10 group-hover/card:bg-[#e01a22] group-hover/card:border-[#e01a22] group-hover/card:scale-110 transition-all duration-300 ease-out">
+          <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-1" />
         </div>
-
-        {/* Center/Upper Headline Text Overlay */}
-        {short.overlayTitle && (
-          <div className="absolute inset-x-0 top-[28%] px-2.5 text-center pointer-events-none z-10">
-            <h3 className="font-serif text-sm sm:text-base leading-tight tracking-wide">
-              {renderOverlayTitle(short.overlayTitle)}
-            </h3>
-          </div>
-        )}
-
-        {/* Play Button Overlay (Bottom-Right) */}
-        <div className="absolute bottom-3 right-3 bg-white text-slate-900 rounded p-1 shadow shadow-black/25 z-10">
-          <Play className="w-3.5 h-3.5 fill-current text-slate-900 ml-0.5" />
-        </div>
-      </div>
-
-      {/* Bottom Caption Area */}
-      <div className="p-3 bg-white border-t border-slate-100 flex-1 flex items-center">
-        <h4 className="text-xs font-bold text-slate-800 line-clamp-2 leading-snug font-sans">
-          {short.title}
-        </h4>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ interface EntertainmentSectionProps {
 export const EntertainmentSection: React.FC<EntertainmentSectionProps> = ({ articles }) => {
   return (
     <section className="py-8 border-b border-slate-100">
-      <SectionHeading title="मनोरंजन" accentColor="navy" />
+      <SectionHeading title="मनोरंजन" accentColor="navy" actionLink="/category/entertainment" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {articles.slice(0, 3).map((art) => (
           <ArticleCard key={art.id} article={art} layout="vertical" variant="simple" />

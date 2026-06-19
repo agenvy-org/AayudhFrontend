@@ -29,16 +29,10 @@ function SearchContent() {
   };
 
   return (
-    <div className="py-6 font-sans">
-      <SectionHeading 
-        title="खोज परिणाम" 
-        subtitle="Aayudh प्लेटफॉर्म पर अपने पसंद की खबरें खोजें" 
-        accentColor="purple" 
-      />
-      
+    <div className="pt-10 pb-8 font-sans">
       {/* Large search input form */}
-      <form onSubmit={handleSearchSubmit} className="max-w-2xl mx-auto mb-8">
-        <div className="relative w-full flex gap-2">
+      <form onSubmit={handleSearchSubmit} className="max-w-2xl mx-auto mb-10">
+        <div className="relative w-full flex gap-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] bg-white p-2 rounded-2xl border border-slate-100">
           <div className="relative flex-grow">
             <Input
               type="text"

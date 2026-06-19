@@ -12,7 +12,7 @@ interface LifestyleSectionProps {
 export const LifestyleSection: React.FC<LifestyleSectionProps> = ({ articles }) => {
   return (
     <section className="py-8 border-b border-slate-100">
-      <SectionHeading title="लाइफस्टाइल" accentColor="navy" />
+      <SectionHeading title="लाइफस्टाइल" accentColor="navy" actionLink="/category/lifestyle" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {articles.slice(0, 3).map((art) => (
           <ArticleCard key={art.id} article={art} layout="vertical" variant="simple" />

@@ -28,7 +28,6 @@ export const footerNav = {
     { title: "आस्था", href: "/astrology" },
   ],
   features: [
-    { title: "शॉर्ट्स", href: "/shorts" },
     { title: "वीडियो बुलेटिन", href: "/videos" },
     { title: "पॉडकास्ट", href: "/podcast" },
     { title: "राशिफल", href: "/astrology" },

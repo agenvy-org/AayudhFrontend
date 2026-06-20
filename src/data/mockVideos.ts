@@ -11,7 +11,8 @@ export const mockVideos: Video[] = [
     publishedAt: '12 मिनट पहले',
     views: '12K',
     category: 'मध्यप्रदेश न्यूज़',
-    type: 'explainer'
+    type: 'explainer',
+    description: 'मध्यप्रदेश के ग्रामीण इलाकों से सीधे हमारे संवाददाताओं की विस्तृत ग्राउंड रिपोर्ट। जानिए किन वास्तविक चुनौतियों का सामना कर रहे हैं यहाँ के लोग और क्या हैं उनके मुख्य मुद्दे। पानी, बिजली और शिक्षा की स्थिति पर एक गहरी नज़र।'
   },
   {
     id: 'vid-2',
@@ -23,7 +24,8 @@ export const mockVideos: Video[] = [
     publishedAt: '2 घंटे पहले',
     views: '8.5K',
     category: 'राजनीति',
-    type: 'explainer'
+    type: 'explainer',
+    description: 'सिर्फ 5 मिनट में समझिए देश और प्रदेश की राजनीति के ताज़ा समीकरण। इस एक्सप्लेनर में हम डिकोड करेंगे हालिया राजनैतिक फैसलों के मायने और जनता पर उनके दूरगामी प्रभाव।'
   },
   {
     id: 'vid-3',
@@ -35,7 +37,8 @@ export const mockVideos: Video[] = [
     publishedAt: '12 मिनट पहले',
     views: '5.2K',
     category: 'शहर',
-    type: 'normal'
+    type: 'normal',
+    description: 'हर रोज़ ट्रैफिक जाम से जूझते शहरवासियों के लिए एक विशेष रिपोर्ट। जानिए चौराहों पर लगने वाले लंबे जाम की मुख्य वजहें और स्थानीय प्रशासन इस दिशा में क्या ठोस कदम उठा रहा है।'
   },
   {
     id: 'vid-4',
@@ -47,7 +50,8 @@ export const mockVideos: Video[] = [
     publishedAt: '3 घंटे पहले',
     views: '15K',
     category: 'क्रिकेट',
-    type: 'normal'
+    type: 'normal',
+    description: 'घरेलू क्रिकेट में लगातार शानदार प्रदर्शन कर रहे युवा बल्लेबाज़ वैभव सूर्यवंशी की तकनीक और उनके भविष्य पर विशेषज्ञों की राय। क्या वह भारतीय टीम में अपनी जगह पक्की कर पाएंगे?'
   },
   {
     id: 'vid-5',
@@ -59,7 +63,8 @@ export const mockVideos: Video[] = [
     publishedAt: '6 घंटे पहले',
     views: '3.1K',
     category: 'देश',
-    type: 'normal'
+    type: 'normal',
+    description: 'नई शिक्षा नीति (NEP 2020) के लागू होने के बाद सरकारी स्कूलों में आए बड़े बदलावों की एक निष्पक्ष और व्यापक समीक्षा। शिक्षकों और छात्रों से विशेष बातचीत पर आधारित हमारी यह ग्राउंड रिपोर्ट।'
   },
   {
     id: 'vid-6',
@@ -71,7 +76,8 @@ export const mockVideos: Video[] = [
     publishedAt: '8 घंटे पहले',
     views: '4.2K',
     category: 'मध्यप्रदेश न्यूज़',
-    type: 'normal'
+    type: 'normal',
+    description: 'मानसून की शुरुआत के साथ ही खेतों में बुवाई की तैयारियां तेज़ हो गई हैं। जानिए इस मौसम में किसानों को कौन सी फसलें बोनी चाहिए और कृषि वैज्ञानिकों की क्या विशेष सलाह है।'
   },
   {
     id: 'vid-7',
@@ -83,7 +89,8 @@ export const mockVideos: Video[] = [
     publishedAt: '12 घंटे पहले',
     views: '9.8K',
     category: 'राजनीति',
-    type: 'explainer'
+    type: 'explainer',
+    description: 'आगामी बजट 2026 की विस्तृत व्याख्या। समझिए कि राज्य सरकार ने रोज़गार, महिला सशक्तिकरण और इंफ्रास्ट्रक्चर के लिए इस बजट में कौन-कौन से नए प्रावधान किए हैं।'
   },
   {
     id: 'vid-8',
@@ -92,10 +99,11 @@ export const mockVideos: Video[] = [
     url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     thumbnail: 'https://images.unsplash.com/photo-1561484930-998b6a7b22e8?q=80&w=800',
     duration: '07:50',
-    publishedAt: '18 घंटे पहले',
+    publishedAt: '18 घंटे আগে',
     views: '11K',
     category: 'शहर',
-    type: 'normal'
+    type: 'normal',
+    description: 'इंदौर के मशहूर सराफा बाजार की नाइट लाइफ की एक आकर्षक झलक। दिन में जेवरातों की चमक और रात में स्वादिष्ट व्यंजनों की खुशबू समेटे इस बाज़ार की अनोखी कहानी।'
   },
   {
     id: 'vid-9',
@@ -107,7 +115,8 @@ export const mockVideos: Video[] = [
     publishedAt: '1 दिन पहले',
     views: '6.7K',
     category: 'खेल',
-    type: 'normal'
+    type: 'normal',
+    description: 'सुविधाओं के अभाव के बावजूद अपने जज़्बे से राष्ट्रीय और अंतर्राष्ट्रीय स्तर पर मेडल जीतने वाले मध्यप्रदेश के होनहार ग्रामीण खिलाड़ियों की प्रेरणादायक कहानी।'
   },
   {
     id: 'vid-10',
@@ -119,6 +128,7 @@ export const mockVideos: Video[] = [
     publishedAt: '2 दिन पहले',
     views: '13K',
     category: 'देश',
-    type: 'explainer'
+    type: 'explainer',
+    description: 'कूनो नेशनल पार्क में जन्मे चीते के नए शावकों की पहली झलक। वन्यजीव विशेषज्ञों से जानिए इन शावकों की सुरक्षा और भारत में चीता प्रोजेक्ट के भविष्य की संभावनाएं।'
   }
 ];

@@ -49,7 +49,6 @@ export const ShortsSection: React.FC<ShortsSectionProps> = ({ shorts }) => {
         title="वीडियो शॉर्ट्स" 
         accentColor="navy" 
         className="mb-8" 
-        actionLink="/shorts" 
         underlineStyle="glow"
       />
 

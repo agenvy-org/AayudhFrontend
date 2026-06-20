@@ -129,10 +129,7 @@ export const MobileMenu: React.FC = () => {
                 <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-wider text-slate-400">
                   स्पेशल फीचर्स
                 </p>
-                <div className="grid grid-cols-2 gap-2 text-center font-sans text-xs font-semibold">
-                  <Link href="/shorts" className="rounded-lg border border-slate-100 bg-slate-50 py-3 text-slate-700 hover:border-brand-purple hover:bg-brand-purple-light hover:text-brand-purple">
-                    ⚡ शॉर्ट्स (60s)
-                  </Link>
+                <div className="grid grid-cols-1 gap-2 text-center font-sans text-xs font-semibold">
                   <Link href="/podcast" className="rounded-lg border border-slate-100 bg-slate-50 py-3 text-slate-700 hover:border-brand-purple hover:bg-brand-purple-light hover:text-brand-purple">
                     🎙️ पॉडकास्ट
                   </Link>

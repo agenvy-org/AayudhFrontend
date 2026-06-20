@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Play } from 'lucide-react';
 import { Short } from '@/types/shorts';
+import { VideoModal } from '../common/VideoModal';
 
 interface ShortsCardProps {
   short: Short;
@@ -11,6 +12,8 @@ interface ShortsCardProps {
 }
 
 export const ShortsCard: React.FC<ShortsCardProps> = ({ short, onClick, isActive = false }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Helper to color half the title yellow and half white, matching the editorial reference image
   const renderOverlayTitle = (title?: string) => {
     if (!title) return null;
@@ -43,35 +46,52 @@ export const ShortsCard: React.FC<ShortsCardProps> = ({ short, onClick, isActive
     );
   };
 
-  return (
-    <div
-      onClick={onClick}
-      className={`relative rounded-[28px] overflow-hidden bg-white hover:-translate-y-1.5 border border-slate-200/80 flex flex-col cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] w-[190px] sm:w-[240px] shrink-0 group/card p-2 sm:p-2.5 ${
-        isActive ? 'ring-2 ring-[#e01a22] ring-offset-2' : ''
-      }`}
-    >
-      {/* Media Section with 9:16 Aspect Ratio */}
-      <div className="relative aspect-[9/16] bg-slate-950 overflow-hidden shrink-0 rounded-[20px] sm:rounded-[22px]">
-        {/* Subtle inner border for crispness */}
-        <div className="absolute inset-0 ring-1 ring-inset ring-black/5 z-20 rounded-[20px] sm:rounded-[22px] pointer-events-none" />
-        
-        {short.thumbnail ? (
-          <img
-            src={short.thumbnail}
-            alt={short.title}
-            className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/card:scale-110"
-            loading="lazy"
-          />
-        ) : (
-          <div className={`w-full h-full bg-gradient-to-tr ${short.bgColor || 'from-indigo-400 to-purple-600'} transition-transform duration-700 group-hover/card:scale-110`} />
-        )}
+  const handleCardClick = () => {
+    if (short.videoUrl) {
+      setIsModalOpen(true);
+    }
+    if (onClick) {
+      onClick();
+    }
+  };
 
-        {/* Small Dark Circular Play Button Overlay (Bottom-Right) */}
-        <div className="absolute bottom-3 right-3 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 backdrop-blur-sm border-[1.5px] border-white/80 text-white shadow-lg z-10 group-hover/card:bg-[#e01a22] group-hover/card:border-[#e01a22] group-hover/card:scale-110 transition-all duration-300 ease-out">
-          <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-1" />
+  return (
+    <>
+      <div
+        onClick={handleCardClick}
+        className={`relative rounded-[28px] overflow-hidden bg-white hover:-translate-y-1.5 border border-slate-200/80 flex flex-col cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] w-[190px] sm:w-[240px] shrink-0 group/card p-2 sm:p-2.5 ${
+          isActive ? 'ring-2 ring-[#e01a22] ring-offset-2' : ''
+        }`}
+      >
+        {/* Media Section with 9:16 Aspect Ratio */}
+        <div className="relative aspect-[9/16] bg-slate-950 overflow-hidden shrink-0 rounded-[20px] sm:rounded-[22px]">
+          {/* Subtle inner border for crispness */}
+          <div className="absolute inset-0 ring-1 ring-inset ring-black/5 z-20 rounded-[20px] sm:rounded-[22px] pointer-events-none" />
+          
+          {short.thumbnail ? (
+            <img
+              src={short.thumbnail}
+              alt={short.title}
+              className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/card:scale-110"
+              loading="lazy"
+            />
+          ) : (
+            <div className={`w-full h-full bg-gradient-to-tr ${short.bgColor || 'from-indigo-400 to-purple-600'} transition-transform duration-700 group-hover/card:scale-110`} />
+          )}
+
+          {/* Small Dark Circular Play Button Overlay (Bottom-Right) */}
+          <div className="absolute bottom-3 right-3 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 backdrop-blur-sm border-[1.5px] border-white/80 text-white shadow-lg z-10 group-hover/card:bg-[#e01a22] group-hover/card:border-[#e01a22] group-hover/card:scale-110 transition-all duration-300 ease-out">
+            <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-1" />
+          </div>
         </div>
       </div>
-    </div>
+
+      <VideoModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        videoUrl={short.videoUrl}
+      />
+    </>
   );
 };
 

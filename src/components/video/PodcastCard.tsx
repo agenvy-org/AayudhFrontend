@@ -63,7 +63,7 @@ export const PodcastCard: React.FC<PodcastCardProps> = ({ podcast, className }) 
           {podcast.title}
         </h4>
         {podcast.description && (
-          <p className="mt-2 text-[13px] sm:text-[14px] text-slate-500 line-clamp-2 leading-relaxed flex-1">
+          <p className="mt-2 text-[15px] sm:text-[16px] text-slate-600 line-clamp-2 leading-relaxed flex-1">
             {podcast.description}
           </p>
         )}

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Article } from '@/types/article';
 import { Card } from '../common/Card';
@@ -34,11 +35,12 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
           "relative overflow-hidden bg-slate-100 shrink-0",
           isSimple ? "aspect-video w-full rounded-xl" : (layout === 'horizontal' ? 'w-full sm:w-48 h-36' : 'aspect-video w-full')
         )}>
-          <img
+          <Image
             src={article.thumbnail}
             alt={article.title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
           />
         </div>
 

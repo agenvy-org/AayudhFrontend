@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Play } from 'lucide-react';
 import { Short } from '@/types/shorts';
 import { VideoModal } from '../common/VideoModal';
@@ -68,19 +69,28 @@ export const ShortsCard: React.FC<ShortsCardProps> = ({ short, onClick, isActive
           {/* Subtle inner border for crispness */}
           <div className="absolute inset-0 ring-1 ring-inset ring-black/5 z-20 rounded-[20px] sm:rounded-[22px] pointer-events-none" />
           
+          {/* Bottom Gradient for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10" />
+
           {short.thumbnail ? (
-            <img
+            <Image
               src={short.thumbnail}
               alt={short.title}
-              className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/card:scale-110"
-              loading="lazy"
+              fill
+              className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/card:scale-110"
+              sizes="(max-width: 640px) 190px, 240px"
             />
           ) : (
             <div className={`w-full h-full bg-gradient-to-tr ${short.bgColor || 'from-indigo-400 to-purple-600'} transition-transform duration-700 group-hover/card:scale-110`} />
           )}
 
+          {/* Title Overlay */}
+          <div className="absolute bottom-3.5 left-3.5 right-14 z-20 text-left text-[12px] sm:text-[14px] leading-[1.3] select-none font-serif">
+            {renderOverlayTitle(short.title)}
+          </div>
+
           {/* Small Dark Circular Play Button Overlay (Bottom-Right) */}
-          <div className="absolute bottom-3 right-3 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 backdrop-blur-sm border-[1.5px] border-white/80 text-white shadow-lg z-10 group-hover/card:bg-[#e01a22] group-hover/card:border-[#e01a22] group-hover/card:scale-110 transition-all duration-300 ease-out">
+          <div className="absolute bottom-3 right-3 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black/60 backdrop-blur-sm border-[1.5px] border-white/80 text-white shadow-lg z-20 group-hover/card:bg-[#e01a22] group-hover/card:border-[#e01a22] group-hover/card:scale-110 transition-all duration-300 ease-out">
             <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-1" />
           </div>
         </div>

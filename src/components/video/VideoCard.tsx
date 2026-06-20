@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Play } from 'lucide-react';
 import { Video } from '@/types/video';
 import { cn } from '@/lib/utils';
@@ -29,11 +30,12 @@ export const VideoCard: React.FC<VideoCardProps> = ({ video, className }) => {
           
           {/* Thumbnail with play icon */}
           <div className="relative w-[110px] h-[72px] bg-slate-100 rounded-lg overflow-hidden shrink-0 flex items-center justify-center border border-slate-150">
-            <img
+            <Image
               src={video.thumbnail}
               alt={video.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              loading="lazy"
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="110px"
             />
             <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/35 transition-colors duration-200">
               <div className="bg-white/95 rounded-full p-1.5 shadow-sm">
@@ -50,11 +52,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({ video, className }) => {
             <h4 className="text-[14px] font-semibold text-slate-800 leading-[1.35] line-clamp-2 group-hover:text-brand-purple transition-colors duration-200">
               {video.title}
             </h4>
-            {video.description && (
-              <p className="mt-1 text-[11px] text-slate-500 line-clamp-1">
-                {video.description}
-              </p>
-            )}
+
             <div className="flex items-center gap-1.5 text-[11px] text-slate-500 mt-1.5 font-semibold">
               <span>{video.publishedAt}</span>
               {video.views && (

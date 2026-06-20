@@ -1,32 +1,17 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { articleService } from '@/services/article.service';
-import { Article } from '@/types/article';
+import React from 'react';
+import { useArticlesByCategory } from '@/hooks/useArticles';
 import { Loader } from '../common/Loader';
 import { SectionHeading } from '../common/SectionHeading';
 import { ArticleCard } from '../article/ArticleCard';
 
 export const AasthaSection: React.FC = () => {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { data: articlesData, isLoading } = useArticlesByCategory('aastha');
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const data = await articleService.getArticlesByCategory('aastha');
-        // Get the latest 3 articles for the homepage section
-        setArticles(data.slice(0, 3));
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchArticles();
-  }, []);
+  if (isLoading) return <Loader size="md" className="py-12" />;
 
-  if (loading) return <Loader size="md" className="py-12" />;
+  const articles = articlesData?.slice(0, 3) || [];
   if (articles.length === 0) return null;
 
   return (

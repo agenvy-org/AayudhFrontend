@@ -49,12 +49,7 @@ export const MPNewsSection: React.FC<MPNewsSectionProps> = ({ articles }) => {
 
   const filteredArticles = activeTab === 'all'
     ? articles
-    : activeTab === 'और भी'
-      ? articles.filter(art =>
-        !art.tags?.some(tag => tag.includes('भोपाल') || tag.includes('इंदौर') || tag.includes('जबलपुर')) &&
-        !art.title.includes('भोपाल') && !art.title.includes('इंदौर') && !art.title.includes('जबलपुर')
-      )
-      : articles.filter(art =>
+    : articles.filter(art =>
         art.tags?.some(tag => tag.includes(activeTab)) ||
         art.title.includes(activeTab) ||
         art.excerpt.includes(activeTab)

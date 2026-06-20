@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Author } from '@/types/article';
 
 interface AuthorBoxProps {
@@ -13,10 +14,12 @@ export const AuthorBox: React.FC<AuthorBoxProps> = ({ author }) => {
       
       <div className="flex items-center gap-4">
         <div className="relative">
-          <img
+          <Image
             src={author.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150'}
             alt={author.name}
-            className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md shrink-0 relative z-10"
+            width={56}
+            height={56}
+            className="rounded-full object-cover border-2 border-white shadow-md shrink-0 relative z-10"
           />
           <div className="absolute inset-0 bg-brand-navy/20 rounded-full blur-md -z-0 scale-110"></div>
         </div>

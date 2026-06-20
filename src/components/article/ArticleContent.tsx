@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Article } from '@/types/article';
 import { AuthorBox } from './AuthorBox';
 import { ShareButtons } from './ShareButtons';
@@ -50,11 +51,14 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ article }) => {
       </div>
 
       {/* Main Image */}
-      <div className="mt-6 rounded-2xl overflow-hidden aspect-video bg-slate-100 shadow-sm border border-slate-100">
-        <img
+      <div className="relative mt-6 rounded-2xl overflow-hidden aspect-video bg-slate-100 shadow-sm border border-slate-100">
+        <Image
           src={article.thumbnail}
           alt={article.title}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 800px"
+          priority
         />
       </div>
 

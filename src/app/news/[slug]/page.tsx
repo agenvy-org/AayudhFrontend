@@ -1,37 +1,31 @@
-'use client';
-
-import React, { use } from 'react';
+import React from 'react';
 import { notFound } from 'next/navigation';
-import { useArticle, useRelatedArticles } from '@/hooks/useArticles';
+import { articleService } from '@/services/article.service';
 import { ArticleContent } from '@/components/article/ArticleContent';
 import { RelatedArticles } from '@/components/article/RelatedArticles';
 import { LiveUpdatesWidget } from '@/components/widgets/LiveUpdatesWidget';
 import { WhatsAppWidget } from '@/components/widgets/WhatsAppWidget';
-import { Loader } from '@/components/common/Loader';
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
-  const { slug } = use(params);
-  const { data: article, isLoading, isError } = useArticle(slug);
-  const { data: related } = useRelatedArticles(slug, article?.category.slug || '');
+export async function generateStaticParams() {
+  const articles = await articleService.getArticles();
+  return articles.map((article) => ({
+    slug: article.slug,
+  }));
+}
 
-  if (isLoading) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[50vh] py-12">
-        <Loader size="lg" />
-        <p className="mt-4 text-xs font-semibold text-slate-500 animate-pulse font-sans">
-          खबर लोड हो रही है...
-        </p>
-      </div>
-    );
-  }
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params;
+  const article = await articleService.getArticleBySlug(slug);
 
-  if (isError || !article) {
+  if (!article) {
     notFound();
   }
+
+  const related = await articleService.getRelatedArticles(slug, article.category.slug);
 
   return (
     <div className="py-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

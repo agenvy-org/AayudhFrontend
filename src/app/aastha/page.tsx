@@ -1,31 +1,15 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { articleService } from '@/services/article.service';
-import { Article } from '@/types/article';
+import React from 'react';
+import { useArticlesByCategory } from '@/hooks/useArticles';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { Loader } from '@/components/common/Loader';
 import { ArticleCard } from '@/components/article/ArticleCard';
 
 export default function AasthaPage() {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { data: articles = [], isLoading } = useArticlesByCategory('aastha');
 
-  useEffect(() => {
-    const fetchAll = async () => {
-      try {
-        const data = await articleService.getArticlesByCategory('aastha');
-        setArticles(data);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchAll();
-  }, []);
-
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] py-12">
         <Loader size="lg" />

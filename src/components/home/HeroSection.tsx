@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Play, ChevronRight } from 'lucide-react';
 import { Article } from '@/types/article';
 import { Button } from '../common/Button';
@@ -27,10 +28,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             {/* Featured Image */}
             <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-100 shadow-md border border-slate-100/50">
-              <img
+              <Image
                 src={featuredArticle.thumbnail}
                 alt={featuredArticle.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                priority
               />
             </div>
             

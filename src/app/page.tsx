@@ -1,9 +1,8 @@
-'use client';
-
 import React from 'react';
-import { useArticles } from '@/hooks/useArticles';
-import { useShorts } from '@/hooks/useShorts';
-import { useVideos, usePodcasts } from '@/hooks/useVideos';
+import { articleService } from '@/services/article.service';
+import { shortsService } from '@/services/shorts.service';
+import { videoService } from '@/services/video.service';
+import { podcastService } from '@/services/podcast.service';
 import { HeroSection } from '@/components/home/HeroSection';
 import { MPNewsSection } from '@/components/home/MPNewsSection';
 import { ShortsSection } from '@/components/home/ShortsSection';
@@ -16,26 +15,15 @@ import { TopNewsTicker } from '@/components/home/TopNewsTicker';
 import { EntertainmentSection } from '@/components/home/EntertainmentSection';
 import { LifestyleSection } from '@/components/home/LifestyleSection';
 import { AasthaSection } from '@/components/home/AasthaSection';
-import { Loader } from '@/components/common/Loader';
 
-
-
-export default function HomePage() {
-  const { data: articles, isLoading: articlesLoading } = useArticles();
-  const { data: shorts, isLoading: shortsLoading } = useShorts();
-  const { data: videos, isLoading: videosLoading } = useVideos();
-  const { data: podcasts, isLoading: podcastsLoading } = usePodcasts();
-
-  if (articlesLoading || shortsLoading || videosLoading || podcastsLoading) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] py-12">
-        <Loader size="lg" />
-        <p className="mt-4 font-serif text-sm font-semibold text-slate-500 animate-pulse">
-          ताज़ा समाचार लोड हो रहे हैं...
-        </p>
-      </div>
-    );
-  }
+export default async function HomePage() {
+  // Fetch everything in parallel on the server
+  const [articles, shorts, videos, podcasts] = await Promise.all([
+    articleService.getArticles(),
+    shortsService.getShorts(),
+    videoService.getVideos(),
+    podcastService.getPodcasts(),
+  ]);
 
   // Filter articles for specific sections
   const featuredArticle = articles?.find(a => a.isFeatured);

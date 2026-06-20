@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import { useVideos } from '@/hooks/useVideos';
 import { SectionHeading } from '@/components/common/SectionHeading';
 import { Loader } from '@/components/common/Loader';
@@ -172,11 +173,12 @@ function VideosContent() {
                   >
                     {/* Thumbnail */}
                     <div className="relative w-[130px] h-[74px] bg-slate-100 rounded-[8px] overflow-hidden shrink-0">
-                      <img
+                      <Image
                         src={vid.thumbnail}
                         alt={vid.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
+                        fill
+                        className="object-cover"
+                        sizes="130px"
                       />
                       <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
                         {isSelected ? (

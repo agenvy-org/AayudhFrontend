@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Play, MapPin, Calendar } from 'lucide-react';
 import { Video } from '@/types/video';
 import { Card } from '../common/Card';
@@ -28,11 +29,12 @@ export const ExplainerCard: React.FC<ExplainerCardProps> = ({ video, className }
 
         {/* Light Grayish Video Placeholder Container */}
         <div className="w-full aspect-[16/9] bg-[#D6DEE5] rounded-xl overflow-hidden shrink-0 relative transition-transform duration-300 group-hover:scale-[1.02]">
-          <img
+          <Image
             src={video.thumbnail}
             alt={video.title}
-            className="w-full h-full object-cover opacity-80 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-100"
-            loading="lazy"
+            fill
+            className="object-cover opacity-80 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-100"
+            sizes="(max-width: 768px) 100vw, 300px"
           />
           {/* Subtle play indicator */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/10">
@@ -47,11 +49,7 @@ export const ExplainerCard: React.FC<ExplainerCardProps> = ({ video, className }
             <h4 className="font-serif text-[15px] sm:text-[17px] font-bold text-[#111827] leading-[1.35] line-clamp-2 group-hover:text-[#e01a22] transition-colors duration-200 w-full">
               {video.title}
             </h4>
-            {video.description && (
-              <p className="mt-2 text-[13px] text-slate-500 line-clamp-2 leading-snug w-full">
-                {video.description}
-              </p>
-            )}
+
           </div>
           
           {/* Date Footer */}

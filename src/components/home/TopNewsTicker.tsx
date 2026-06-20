@@ -34,16 +34,26 @@ export const TopNewsTicker: React.FC<TopNewsTickerProps> = ({ news }) => {
   if (!news || news.length === 0) return null;
 
   return (
-    <div className="mt-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex items-center gap-4 shadow-sm mb-2">
-      <div className="font-sans font-black text-red-600 tracking-widest text-[13px] uppercase shrink-0">
+    <div className="mt-3 bg-red-600 border border-red-700 rounded-full px-4 py-3 flex items-center gap-4 shadow-sm mb-4 relative overflow-hidden group">
+      {/* Subtle background glow effect */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+      {/* Breaking Badge */}
+      <div className="flex items-center gap-2 font-sans font-black text-white tracking-wider text-[13px] uppercase shrink-0 z-10">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+        </span>
         BREAKING :
       </div>
-      <div className="flex-1 overflow-hidden min-w-0 relative h-[22px]">
+
+      {/* Ticker Content */}
+      <div className="flex-1 overflow-hidden min-w-0 relative h-[22px] z-10">
         {news.map((item, index) => (
           <Link
             href={`/news/${item.slug}`}
             key={index}
-            className={`absolute top-0 left-0 w-full whitespace-nowrap overflow-hidden text-ellipsis font-serif font-bold text-[15px] text-yellow-600 cursor-pointer hover:text-red-600 transition-all duration-500 ease-in-out block ${index === currentIndex
+            className={`absolute top-0 left-0 w-full whitespace-nowrap overflow-hidden text-ellipsis font-serif font-semibold text-[15px] text-white cursor-pointer hover:text-yellow-300 transition-all duration-500 ease-in-out block ${index === currentIndex
               ? 'opacity-100 translate-y-0 z-10'
               : index < currentIndex
                 ? 'opacity-0 -translate-y-4 -z-10 pointer-events-none'
@@ -54,16 +64,20 @@ export const TopNewsTicker: React.FC<TopNewsTickerProps> = ({ news }) => {
           </Link>
         ))}
       </div>
-      <div className="flex items-center gap-1.5 shrink-0 ml-2">
+
+      {/* Controls */}
+      <div className="flex items-center gap-1 shrink-0 ml-2 z-10">
         <button
           onClick={handlePrev}
-          className="p-1.5 hover:bg-slate-200 rounded-md transition-colors text-slate-600 hover:text-slate-900 cursor-pointer"
+          className="p-1.5 rounded-full hover:bg-red-700 transition-colors text-white/80 hover:text-white cursor-pointer"
+          aria-label="Previous News"
         >
           <ChevronLeft className="w-4 h-4" strokeWidth={2.5} />
         </button>
         <button
           onClick={handleNext}
-          className="p-1.5 hover:bg-slate-200 rounded-md transition-colors text-slate-600 hover:text-slate-900 cursor-pointer"
+          className="p-1.5 rounded-full hover:bg-red-700 transition-colors text-white/80 hover:text-white cursor-pointer"
+          aria-label="Next News"
         >
           <ChevronRight className="w-4 h-4" strokeWidth={2.5} />
         </button>
@@ -71,3 +85,5 @@ export const TopNewsTicker: React.FC<TopNewsTickerProps> = ({ news }) => {
     </div>
   );
 };
+
+export default TopNewsTicker;

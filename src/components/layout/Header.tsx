@@ -180,9 +180,11 @@ export const Header: React.FC = () => {
             <span className="h-4 w-[1px] bg-slate-700/60 mx-1 shrink-0" />
 
             {/* Magazine Button (Replaced Shorts) */}
-            <Link href="/category/magazine" className="shrink-0">
-              <Button className="bg-brand-purple hover:bg-brand-purple-dark text-white font-sans text-xs px-4 py-1.5 rounded-[8px] font-bold border-none hover:shadow-md hover:shadow-brand-purple/20 transition-all cursor-pointer">
-                मैगज़ीन 📖
+            <Link href="/category/magazine" className="shrink-0 group">
+              <Button className="bg-gradient-to-b from-[#FDE047] via-[#FACC15] to-[#EAB308] hover:from-[#FEF08A] hover:via-[#FDE047] hover:to-[#FACC15] text-[#422006] font-sans text-[13px] px-4 py-1.5 rounded-[10px] font-black tracking-wide border border-[#CA8A04]/80 shadow-[0_2px_8px_rgba(202,138,4,0.4),inset_0_1px_1px_rgba(255,255,255,0.8)] hover:shadow-[0_4px_12px_rgba(202,138,4,0.5),inset_0_2px_2px_rgba(255,255,255,0.9)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_1px_2px_rgba(202,138,4,0.4),inset_0_1px_2px_rgba(0,0,0,0.1)] transition-all duration-300 flex items-center gap-1.5 cursor-pointer overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out" />
+                <span className="relative z-10">मैगज़ीन</span>
+                <span className="text-[14px] relative z-10 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 origin-bottom-right">📖</span>
               </Button>
             </Link>
           </div>

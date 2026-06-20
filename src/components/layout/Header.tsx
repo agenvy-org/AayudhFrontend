@@ -86,7 +86,7 @@ export const Header: React.FC = () => {
 
                       {isMPNews && (
                         <div className="absolute top-[64px] left-1/2 -translate-x-1/2 mt-0 w-[850px] rounded-2xl bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] border border-slate-200/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100] transform origin-top translate-y-4 group-hover:translate-y-0 p-6 cursor-default">
-                          
+
                           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
                             <h3 className="text-brand-navy font-bold text-lg flex items-center gap-2">
                               <MapPin className="w-5 h-5 text-brand-purple" /> मध्य प्रदेश के 55 जिले
@@ -98,7 +98,7 @@ export const Header: React.FC = () => {
                               </Link>
                             </div>
                           </div>
-                          
+
                           {/* Compact grid without scroll */}
                           <ul className="grid grid-cols-5 gap-2">
                             {mpDistricts.map((district) => (
@@ -114,7 +114,7 @@ export const Header: React.FC = () => {
                               </li>
                             ))}
                           </ul>
-                          
+
                         </div>
                       )}
                     </li>
@@ -163,16 +163,16 @@ export const Header: React.FC = () => {
 
             {/* Social Media Icons (Hidden on Mobile) */}
             <div className="hidden md:flex items-center gap-1 shrink-0">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-white hover:text-brand-yellow hover:bg-brand-navy-light/40 transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/MediaAayudh/" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-white hover:text-brand-yellow hover:bg-brand-navy-light/40 transition-colors" aria-label="Facebook">
                 <FacebookIcon className="h-3.5 w-3.5" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-white hover:text-brand-yellow hover:bg-brand-navy-light/40 transition-colors" aria-label="Twitter">
+              <a href="https://x.com/AayudhMedia" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-white hover:text-brand-yellow hover:bg-brand-navy-light/40 transition-colors" aria-label="Twitter">
                 <TwitterIcon className="h-3.5 w-3.5" />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-white hover:text-brand-yellow hover:bg-brand-navy-light/40 transition-colors" aria-label="Youtube">
+              <a href="https://www.youtube.com/@aayudh" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-white hover:text-brand-yellow hover:bg-brand-navy-light/40 transition-colors" aria-label="Youtube">
                 <YoutubeIcon className="h-3.5 w-3.5" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-white hover:text-brand-yellow hover:bg-brand-navy-light/40 transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/aayudhmediaa/" target="_blank" rel="noreferrer" className="rounded-[8px] p-1.5 text-white hover:text-brand-yellow hover:bg-brand-navy-light/40 transition-colors" aria-label="Instagram">
                 <InstagramIcon className="h-3.5 w-3.5" />
               </a>
             </div>

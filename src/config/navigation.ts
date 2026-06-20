@@ -13,7 +13,7 @@ export const mainNav: NavItem[] = [
   { title: "क्रिकेट", href: "/category/cricket" },
   { title: "मनोरंजन", href: "/category/entertainment" },
   { title: "वीडियो", href: "/videos" },
-  { title: "आस्था", href: "/astrology" },
+  { title: "आस्था", href: "/aastha" },
 ];
 
 export const footerNav = {
@@ -25,12 +25,12 @@ export const footerNav = {
     { title: "क्रिकेट", href: "/category/cricket" },
     { title: "मनोरंजन", href: "/category/entertainment" },
     { title: "लाइफस्टाइल", href: "/category/lifestyle" },
-    { title: "आस्था", href: "/astrology" },
+    { title: "आस्था", href: "/aastha" },
   ],
   features: [
     { title: "वीडियो बुलेटिन", href: "/videos" },
     { title: "पॉडकास्ट", href: "/podcast" },
-    { title: "राशिफल", href: "/astrology" },
+    { title: "आस्था", href: "/aastha" },
   ],
   company: [
     { title: "हमारे बारे में", href: "/about" },

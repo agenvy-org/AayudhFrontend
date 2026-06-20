@@ -7,7 +7,7 @@ interface SectionHeadingProps {
   title: string;
   subtitle?: string;
   className?: string;
-  accentColor?: 'navy' | 'purple';
+  accentColor?: 'navy' | 'purple' | 'amber';
   actionLink?: string;
   actionText?: string;
   icon?: React.ReactNode;

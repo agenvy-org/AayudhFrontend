@@ -16,107 +16,121 @@ export const Footer: React.FC = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-20 pb-0 sm:px-6 lg:px-8">
         
-        {/* Top Footer Link Grid */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+        {/* Top Footer Link Grid - Swiss Minimal Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 lg:gap-8">
           
-          {/* Contact Us */}
-          <div className="pr-4 lg:col-span-1">
-            <h3 className="text-[14px] font-bold text-white mb-8 uppercase tracking-[0.2em]">Contact Us</h3>
+          {/* Brand & Identity */}
+          <div className="md:col-span-12 lg:col-span-4 flex flex-col items-start lg:pr-8">
+            <div className="mb-8 w-full">
+              <Link href="/" className="inline-block relative group">
+                <span className="absolute -inset-2 bg-brand-purple/20 blur-xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="relative font-sans text-[36px] font-black tracking-tighter bg-gradient-to-r from-white via-white to-slate-400 bg-clip-text text-transparent drop-shadow-md">
+                  Aayudh.
+                </span>
+              </Link>
+            </div>
+            <p className="text-[14px] leading-relaxed text-slate-400 font-medium mb-8 max-w-sm">
+              A digital-first initiative focused on building awareness, skills, and brighter futures across India.
+            </p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/5 px-4 py-2 text-[11px] font-semibold text-slate-300 backdrop-blur-sm mb-10 tracking-wide">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+              </span>
+              न दैन्यं न पलायनम्
+            </div>
             
-            <ul className="space-y-6 text-[13.5px]">
-              <li className="flex items-start gap-4 group">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-purple/10 text-brand-purple group-hover:bg-brand-purple group-hover:text-white transition-all duration-300">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <div className="leading-relaxed mt-1">
-                  <span className="block text-slate-200 mb-1 font-semibold text-xs tracking-wider uppercase">Registered Address</span>
-                  <span className="text-slate-400 group-hover:text-slate-300 transition-colors">A-494, Shahpura, Bhopal, Madhya Pradesh, 462016</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-4 group">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-purple/10 text-brand-purple group-hover:bg-brand-purple group-hover:text-white transition-all duration-300">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <div className="leading-relaxed mt-1">
-                  <span className="block text-slate-200 mb-1 font-semibold text-xs tracking-wider uppercase">Office Address</span>
-                  <span className="text-slate-400 group-hover:text-slate-300 transition-colors">E4/230, E-4, Arera Colony, Bhopal, Madhya Pradesh 462016</span>
-                </div>
-              </li>
-              <li className="flex items-center gap-4 group">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-purple/10 text-brand-purple group-hover:bg-brand-purple group-hover:text-white transition-all duration-300">
-                  <Phone className="h-4 w-4" />
-                </div>
-                <a href="tel:+919876543210" className="text-slate-400 hover:text-white transition-colors duration-300 mt-0.5">
-                  +(91) 98765 43210
-                </a>
-              </li>
-              <li className="flex items-center gap-4 group">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-purple/10 text-brand-purple group-hover:bg-brand-purple group-hover:text-white transition-all duration-300">
-                  <Mail className="h-4 w-4" />
-                </div>
-                <a href="mailto:info@aayudhnews.com" className="text-slate-400 hover:text-white transition-colors duration-300 mt-0.5">
-                  info@aayudhnews.com
-                </a>
-              </li>
-            </ul>
-
-            <div className="pt-8 flex items-center gap-4">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/60 hover:border-slate-400 transition-all duration-300" aria-label="Facebook">
-                <FacebookIcon className="h-4 w-4 text-slate-400 group-hover:text-white transition-colors" />
+            {/* Minimal Social Icons */}
+            <div className="flex items-center gap-4">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-brand-purple hover:text-white hover:shadow-[0_0_15px_rgba(124,58,ed,0.5)] transition-all duration-300" aria-label="Facebook">
+                <FacebookIcon className="h-4 w-4" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/60 hover:border-slate-400 transition-all duration-300" aria-label="Twitter">
-                <TwitterIcon className="h-4 w-4 text-slate-400 group-hover:text-white transition-colors" />
+              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-brand-purple hover:text-white hover:shadow-[0_0_15px_rgba(124,58,ed,0.5)] transition-all duration-300" aria-label="Twitter">
+                <TwitterIcon className="h-4 w-4" />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/60 hover:border-slate-400 transition-all duration-300" aria-label="Youtube">
-                <YoutubeIcon className="h-4 w-4 text-slate-400 group-hover:text-white transition-colors" />
+              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-brand-purple hover:text-white hover:shadow-[0_0_15px_rgba(124,58,ed,0.5)] transition-all duration-300" aria-label="Youtube">
+                <YoutubeIcon className="h-4 w-4" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/60 hover:border-slate-400 transition-all duration-300" aria-label="Instagram">
-                <InstagramIcon className="h-4 w-4 text-slate-400 group-hover:text-white transition-colors" />
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-slate-400 hover:bg-brand-purple hover:text-white hover:shadow-[0_0_15px_rgba(124,58,ed,0.5)] transition-all duration-300" aria-label="Instagram">
+                <InstagramIcon className="h-4 w-4" />
               </a>
             </div>
           </div>
 
-          {/* Useful Links (Spans 2 columns) */}
-          <div className="lg:pl-6 lg:col-span-2">
-            <h3 className="text-[14px] font-bold text-white mb-8 uppercase tracking-[0.2em]">Useful Links</h3>
-            <ul className="grid grid-cols-2 gap-x-12 gap-y-7 text-[15.5px]">
+          {/* Navigation */}
+          <div className="md:col-span-6 lg:col-span-5 lg:pl-8">
+            <h3 className="text-[10px] font-bold text-slate-500 mb-8 uppercase tracking-[0.3em]">Navigation</h3>
+            <ul className="grid grid-cols-2 gap-x-8 gap-y-5 text-[13.5px] text-slate-400 font-medium">
               <li>
-                <Link href="/" className="text-slate-300 hover:text-white hover:pl-1 transition-all duration-300 inline-block">
-                  Home
+                <Link href="/" className="group flex items-center hover:text-white transition-colors duration-300">
+                  <span className="w-0 overflow-hidden group-hover:w-3.5 transition-all duration-300 ease-out">
+                    <ChevronRight className="h-3.5 w-3.5 text-brand-purple" />
+                  </span>
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">Home</span>
                 </Link>
               </li>
               {footerNav.categories.map((item) => (
                 <li key={item.title}>
-                  <Link href={item.href} className="text-slate-300 hover:text-white hover:pl-1 transition-all duration-300 inline-block">
-                    {item.title}
+                  <Link href={item.href} className="group flex items-center hover:text-white transition-colors duration-300">
+                    <span className="w-0 overflow-hidden group-hover:w-3.5 transition-all duration-300 ease-out">
+                      <ChevronRight className="h-3.5 w-3.5 text-brand-purple" />
+                    </span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">{item.title}</span>
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/about" className="text-slate-300 hover:text-white hover:pl-1 transition-all duration-300 inline-block">
-                  About Us
+                <Link href="/about" className="group flex items-center hover:text-white transition-colors duration-300">
+                  <span className="w-0 overflow-hidden group-hover:w-3.5 transition-all duration-300 ease-out">
+                    <ChevronRight className="h-3.5 w-3.5 text-brand-purple" />
+                  </span>
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">About Us</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="group flex items-center hover:text-white transition-colors duration-300">
+                  <span className="w-0 overflow-hidden group-hover:w-3.5 transition-all duration-300 ease-out">
+                    <ChevronRight className="h-3.5 w-3.5 text-brand-purple" />
+                  </span>
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">Contact Us</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Our Services */}
-          <div className="lg:pl-2 lg:col-span-1">
-            <h3 className="text-[14px] font-bold text-white mb-8 uppercase tracking-[0.2em]">Our Services</h3>
-            <ul className="space-y-7 text-[15.5px]">
-              {footerNav.features.map((item) => (
-                <li key={item.title}>
-                  <Link href={item.href} className="text-slate-300 hover:text-white hover:pl-1 transition-all duration-300 inline-block">
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/contact" className="text-slate-300 hover:text-white hover:pl-1 transition-all duration-300 inline-block">
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
+          {/* Contact Details */}
+          <div className="md:col-span-6 lg:col-span-3">
+            <h3 className="text-[10px] font-bold text-slate-500 mb-8 uppercase tracking-[0.3em]">Contact</h3>
+            <div className="space-y-6">
+              <div className="group">
+                <span className="flex items-center gap-2 text-white mb-1.5 font-bold text-[10px] tracking-[0.15em] uppercase">
+                  <span className="h-1 w-1 rounded-full bg-brand-purple shadow-[0_0_8px_rgba(124,58,ed,0.8)]"></span>
+                  Registered Address
+                </span>
+                <span className="block text-slate-400 group-hover:text-slate-300 transition-colors duration-300 text-[13px] leading-relaxed pl-3 border-l border-white/5">
+                  A-494, Shahpura, Bhopal,<br />Madhya Pradesh, 462016
+                </span>
+              </div>
+              <div className="group">
+                <span className="flex items-center gap-2 text-white mb-1.5 font-bold text-[10px] tracking-[0.15em] uppercase">
+                  <span className="h-1 w-1 rounded-full bg-brand-purple shadow-[0_0_8px_rgba(124,58,ed,0.8)]"></span>
+                  Office Address
+                </span>
+                <span className="block text-slate-400 group-hover:text-slate-300 transition-colors duration-300 text-[13px] leading-relaxed pl-3 border-l border-white/5">
+                  E4/230, E-4, Arera Colony,<br />Bhopal, Madhya Pradesh 462016
+                </span>
+              </div>
+              <div className="pt-2 flex flex-col gap-2 pl-3">
+                <a href="mailto:info@aayudhnews.com" className="group flex items-center text-slate-400 hover:text-white transition-colors duration-300 text-[13px] font-medium">
+                  <Mail className="h-3.5 w-3.5 mr-2 text-slate-500 group-hover:text-brand-purple transition-colors" />
+                  info@aayudhnews.com
+                </a>
+                <a href="tel:+919876543210" className="group flex items-center text-slate-400 hover:text-white transition-colors duration-300 text-[13px] font-medium">
+                  <Phone className="h-3.5 w-3.5 mr-2 text-slate-500 group-hover:text-brand-purple transition-colors" />
+                  +(91) 98765 43210
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -125,7 +139,7 @@ export const Footer: React.FC = () => {
         <div className="mt-20 mb-8 h-px w-full bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between text-[13px] text-slate-400 pb-12 font-medium">
+        <div className="flex flex-col md:flex-row items-center justify-between text-[13px] text-slate-400 pb-16 font-medium">
           <p>
             Copyright &copy; {new Date().getFullYear()} <span className="text-white font-bold tracking-wide">AAYUDH</span>. All Rights Reserved.
           </p>
@@ -135,13 +149,6 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-      </div>
-      
-      {/* Giant Background Text */}
-      <div className="w-full flex justify-center overflow-hidden leading-[0.65] pt-8 pb-0 pointer-events-none select-none relative z-0">
-        <span className="text-[30vw] md:text-[340px] font-black tracking-[-0.06em] text-transparent bg-clip-text bg-gradient-to-b from-[#1e293b] via-[#0f172a]/80 to-[#0a0d14]">
-          aayudh
-        </span>
       </div>
     </footer>
   );

@@ -15,7 +15,7 @@ import { PoliticsSection } from '@/components/home/PoliticsSection';
 import { TopNewsTicker } from '@/components/home/TopNewsTicker';
 import { EntertainmentSection } from '@/components/home/EntertainmentSection';
 import { LifestyleSection } from '@/components/home/LifestyleSection';
-import { AstrologySection } from '@/components/home/AstrologySection';
+import { AasthaSection } from '@/components/home/AasthaSection';
 import { Loader } from '@/components/common/Loader';
 
 
@@ -89,8 +89,8 @@ export default function HomePage() {
       {/* 7. Entertainment Section */}
       <EntertainmentSection articles={entertainmentArticles} />
 
-      {/* 8. Astrology Zodiac Selection Banner */}
-      <AstrologySection />
+      {/* 8. Aastha Section */}
+      <AasthaSection />
 
       {/* 9. Lifestyle Section */}
       <LifestyleSection articles={lifestyleArticles} />
